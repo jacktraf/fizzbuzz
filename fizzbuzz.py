@@ -9,7 +9,7 @@
 #		fizzbuzz 3 5 0 100 1
 # 
 # Written using Arch Linux, havent tested it on other operating systems, so feedback is appreciated
-# I will work on making it as cross-plateform as possible for the practice if nothing else..
+# I will work on making it as cross-platform as possible for the practice if nothing else..
 # 
 #
 
@@ -51,10 +51,10 @@ def FizzBuzz(n, fizz, buzz):
 
 if __name__ == '__main__':
 	usage = """
-		Usage: fizzbuzz.py FIZZ BUZZ STARTNUMBER LIMIT INCREMENT
+		Usage: fizzbuzz FIZZ BUZZ STARTNUMBER LIMIT INCREMENT
 	
-		fizzbuzz.py starts counting from STARTNUMBER, incrementing by INCREMENT, until LIMIT is reached.
-		fizzbuzz.py pritns 'Fizz' if that number is divisible by FIZZ, 'Buzz' if that number is divisable
+		fizzbuzz starts counting from STARTNUMBER, incrementing by INCREMENT, until LIMIT is reached.
+		fizzbuzz pritns 'Fizz' if that number is divisible by FIZZ, 'Buzz' if that number is divisable
 		by BUZZ and 'FizzBuzz' if that number is divisible by both FIZZ and BUZZ.
 
 		If an INCREMENT is not specified, it will be set to 1
