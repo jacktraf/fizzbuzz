@@ -4,14 +4,15 @@
 # 	Print numbers from 1-100
 # 	If the number is a multiple of 3, print Fizz
 # 	If the number is a multiple of 5, print Buzz
-# 	But, if the number is a multiple of both, print fizzbuzz
+# 	But, if the number is a multiple of both, print FizzBuzz
 #	So, to complete this task, it would be run like
 #		fizzbuzz 3 5 0 100 1
 # 
+# Nothing fancy, just needed something to start my github profile.
 # Written using Arch Linux, havent tested it on other operating systems, so feedback is appreciated
-# I will work on making it as cross-platform as possible for the practice if nothing else..
-# 
-#
+# I will work on making it as cross-platform as possible
+# Written using pyhon2.7, but I'm going to switch it use python 3.5
+# Author: Jack Trafford
 
 import sys
 import os
