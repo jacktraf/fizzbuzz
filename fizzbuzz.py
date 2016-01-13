@@ -11,8 +11,10 @@
 # Nothing fancy, just needed something to start my github profile.
 # Written using Arch Linux, havent tested it on other operating systems, so feedback is appreciated
 # I will work on making it as cross-platform as possible
-# Written using pyhon2.7, but I'm going to switch it use python 3.5
+# Works in both python 2.7 and python 3.5
 # Author: Jack Trafford
+# Date  : 1/13/16
+# Email : traffordjack@gmail.com
 
 import sys
 import os
@@ -22,13 +24,13 @@ def main(fizz, buzz, startnumber, limit, increment):
 	number = startnumber
 	while (limit is None) or (number <= limit):
 		if FizzBuzz(number, fizz, buzz) is True:
-			print 'FizzBuzz'
+			print('FizzBuzz')
 		elif Fizz(number, fizz) is True:
-			print 'Fizz'
+			print('Fizz')
 		elif Buzz(number, buzz) is True:
-			print 'Buzz'
+			print('Buzz')
 		else:
-			print number
+			print('number')
 		main(fizz, buzz, number + increment, limit, increment)
 	exit(0)
 
@@ -67,7 +69,7 @@ if __name__ == '__main__':
 
 	NumOfArguments = len(sys.argv) - 1 
 	if (NumOfArguments is 0) or (NumOfArguments is 1):
-		print usage
+		print(usage)
 		exit(1)
 	elif NumOfArguments is 2:
 		fizz         = int(sys.argv[1])
@@ -98,5 +100,5 @@ if __name__ == '__main__':
 		increment    = int(sys.argv[5])
 		main(fizz, buzz, startnumber, limit, increment)
 	else:
-		print 'Error: Too many arguments'
+		print('Error: Too many arguments')
 		exit(1)
