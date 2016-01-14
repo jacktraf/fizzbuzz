@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# 
+#
 # Original task:
 # 	Print numbers from 1-100
 # 	If the number is a multiple of 3, print "Fizz" instead of that number
@@ -59,15 +59,15 @@ fizzbuzz starts counting from STARTNUMBER, incrementing by INCREMENT, until LIMI
 fizzbuzz prints 'Fizz' if that number is divisible by DIVISOR1, 'Buzz' if that number is divisible
 by DIVISOR2 and 'FizzBuzz' if that number is divisible by both DIVISOR1 and DIVISOR2.
 
-If an INCREMENT is not specified, it will be set to 1
+If an INCREMENT   is not specified, it will be set to 1
 
-If LIMIT is not specified, program will continue to loop until user or kernal terminated (SIGINT / CTRL + C / ETC) 
-	
-If STARTNUMBER is not specified, it will be set to 0
+If    LIMIT       is not specified, program will continue to loop until user or kernal terminated (SIGINT / CTRL + C / ETC)
+
+If    STARTNUMBER is not specified, it will be set to 0
 	"""
 
 	# Get the number of arguments passed to our program (sys.argv[0] is always the program name, so we -1 from the length to account for this)
-	NUMOFARGS = len(sys.argv) - 1 
+	NUMOFARGS = len(sys.argv) - 1
 	if (NUMOFARGS is 0) or (NUMOFARGS is 1):
 		print(USAGE)
 		exit(1)
