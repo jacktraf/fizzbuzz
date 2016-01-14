@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+# 
+# Original task:
+# 	Print numbers from 1-100
+# 	If the number is a multiple of 3, print "Fizz" instead of that number
+# 	If the number is a multiple of 5, print "Buzz" instead of that number
+# 	But, if the number is a multiple of both, print "FizzBuzz" instead of that number
+#	So, to complete this task, my program would be run like
+#		fizzbuzz 3 5 0 100 1
+# 	Usage details below in USAGE constant ( or just call fizzbuzz with no arguments )
+#
+# Nothing fancy, just needed something to start my github profile, and to practice with python and code reusability.
+# Written using Arch Linux, haven't tested it on other operating systems, so feedback is appreciated.
+# I will work on making it as cross-platform as possible.
+# Works in both python 2.7 and python 3.5 as far as I know.
+# Author: Jack Trafford
+# Date  : 1/13/16
+# Email : traffordjack@gmail.com
+# Feel free to email me with questions or comments.
+
+import sys
+import os
+from math import *
+
+def main(DIVISOR1, DIVISOR2, STARTCOUNTER, LIMIT, INCREMENT):
+	counter = STARTCOUNTER
+	while (LIMIT is None) or (counter <= LIMIT):
+		DIVIDEND = counter
+		if   is_divisible_by_both(DIVIDEND, DIVISOR1, DIVISOR2) is True:
+			print('FizzBuzz')
+		elif is_divisible(DIVIDEND, DIVISOR1) is True:
+			print('Fizz')
+		elif is_divisible(DIVIDEND, DIVISOR2) is True:
+			print('Buzz')
+		else:
+			print(counter)
+		main(DIVISOR1, DIVISOR2, counter + INCREMENT, LIMIT, INCREMENT)
+	exit(0)
+
+def is_divisible(DIVIDEND, DIVISOR):
+	# Is DIVIDEND divisible by DIVISOR?  Divide DIVIDEND by DIVISOR.  If the remainder is 0, return True.  Else, return False.
+	# "%" is the modulo operator, it's like division, only it returns the remainder, not the quotient.
+	if DIVIDEND % DIVISOR == 0:
+		return True
+	else:
+		return False
+
+def is_divisible_by_both(DIVIDEND, DIVISOR1, DIVISOR2):
+	# Is DIVIDEND divisible by both DIVISOR1 and DIVISOR2?
+	if ((is_divisible(DIVIDEND, DIVISOR1) == True) and (is_divisible(DIVIDEND, DIVISOR2) == True)):
+		return True
+	else:
+		return False
+
+if __name__ == '__main__':
+	USAGE = """Usage: fizzbuzz DIVISOR1 DIVISOR2 STARTNUMBER LIMIT INCREMENT
+
+fizzbuzz starts counting from STARTNUMBER, incrementing by INCREMENT, until LIMIT is reached.
+fizzbuzz prints 'Fizz' if that number is divisible by DIVISOR1, 'Buzz' if that number is divisible
+by DIVISOR2 and 'FizzBuzz' if that number is divisible by both DIVISOR1 and DIVISOR2.
+
+If an INCREMENT is not specified, it will be set to 1
+
+If LIMIT is not specified, program will continue to loop until user or kernal terminated (SIGINT / CTRL + C / ETC) 
+	
+If STARTNUMBER is not specified, it will be set to 0
+	"""
+
+	# Get the number of arguments passed to our program (sys.argv[0] is always the program name, so we -1 from the length to account for this)
+	NUMOFARGS = len(sys.argv) - 1 
+	if (NUMOFARGS is 0) or (NUMOFARGS is 1):
+		print(USAGE)
+		exit(1)
+	elif NUMOFARGS is 2:
+		DIVISOR1     = int(sys.argv[1])
+		DIVISOR2     = int(sys.argv[2])
+		STARTNUMBER  = 0
+		LIMIT        = None
+		INCREMENT    = 1
+	elif NUMOFARGS is 3:
+		DIVISOR1     = int(sys.argv[1])
+		DIVISOR2     = int(sys.argv[2])
+		STARTNUMBER  = int(sys.argv[3])
+		LIMIT        = None
+		INCREMENT    = 1
+	elif NUMOFARGS is 4:
+		DIVISOR1     = int(sys.argv[1])
+		DIVISOR2     = int(sys.argv[2])
+		STARTNUMBER  = int(sys.argv[3])
+		LIMIT        = int(sys.argv[4])
+		INCREMENT    = 1
+	elif NUMOFARGS is 5:
+		DIVISOR1     = int(sys.argv[1])
+		DIVISOR2     = int(sys.argv[2])
+		STARTNUMBER  = int(sys.argv[3])
+		LIMIT        = int(sys.argv[4])
+		INCREMENT    = int(sys.argv[5])
+	if NUMOFARGS > 5:
+		print('Error: Too many arguments')
+		exit(1)
+	main(DIVISOR1, DIVISOR2, STARTNUMBER, LIMIT, INCREMENT)
